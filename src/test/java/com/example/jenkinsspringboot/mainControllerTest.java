@@ -1,6 +1,7 @@
 package com.example.jenkinsspringboot;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,6 +13,7 @@ public class mainControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
+    @Tag("fast")
     @Test
     public void hello() {
         String body = this.restTemplate.getForObject("/", String.class);
