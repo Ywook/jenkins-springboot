@@ -9,7 +9,7 @@ cp $REPOSITORY/deploy/*.jar $REPOSITORY/
 
 echo ">>> 현재 구동중인 애플리케이션 pid 확인"
 
-CURRENT_PID=$(pgrep -fl jenkins-springboot | grep java | awk '{pring $1}')
+CURRENT_PID=$(pgrep -fl jenkins-springboot | grep java | awk '{print $1}')
 
 echo ">> PID : " $CURRENT_PID
 
@@ -32,5 +32,5 @@ chmod +x $JAR_NAME
 echo ">>> $JAR_NAME 실행"
 
 nohup java -jar \
-    =Dspring.config.location=classpath:/application.properties \
+    -Dspring.config.location=classpath:/application.properties \
     $JAR_NAME > $REPOSITORY/nohup.out 2>&1 &
