@@ -10,4 +10,9 @@ public class mainController {
     public String hello() {
         return "Hi";
     }
+
+    @RequestMapping("/webhook")
+    public String webhook() {
+        return "Webhook Test";
+    }
 }
